@@ -1,19 +1,26 @@
 import React, {useEffect} from 'react';
-import {useQuery} from '@tanstack/react-query';
 import {Text, View} from 'react-native';
 import tw from '@/lib/tailwind';
 import ChildComponent from '@/component/ChildComponent';
-import {getPosts} from '@/api/posts/api';
+import usePosts from '@/hooks/usePosts';
 
 function MainScreen() {
-  const {data} = useQuery(['posts'], getPosts);
+  const {posts, isLoading, isError} = usePosts();
   useEffect(() => {
     console.log('부모 컴포넌트 렌더링');
   }, []);
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (isError) {
+    return <Text>Error fetching data</Text>;
+  }
   return (
     <View style={tw`bg-gray-light`}>
       <Text>메인 페이지</Text>
-      <ChildComponent posts={data} />
+      <ChildComponent posts={posts} />
     </View>
   );
 }
