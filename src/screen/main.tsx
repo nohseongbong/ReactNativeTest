@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import tw from '@/lib/tailwind';
 import ChildComponent from '@/component/ChildComponent';
-import usePosts from '@/hooks/usePosts';
+import usePost from '@/hooks/usePost';
 
 function MainScreen() {
-  const {posts, isLoading, isError} = usePosts();
+  const {posts, isLoading, isError} = usePost();
   useEffect(() => {
     console.log('부모 컴포넌트 렌더링');
   }, []);
