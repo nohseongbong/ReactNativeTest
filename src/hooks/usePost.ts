@@ -4,7 +4,7 @@ import {useQuery} from '@tanstack/react-query';
 import {useSetRecoilState} from 'recoil';
 import {postsState} from '@/atoms/postState';
 
-const usePosts = () => {
+const usePost = () => {
   const setPosts = useSetRecoilState(postsState);
   const {
     data: fetchedPosts,
@@ -21,4 +21,4 @@ const usePosts = () => {
   return {posts: fetchedPosts, isLoading, isError};
 };
 
-export default usePosts;
+export default usePost;
