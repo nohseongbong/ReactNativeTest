@@ -1,5 +1,4 @@
 import tw from '@/lib/tailwind';
-import React, {useEffect} from 'react';
 import {ScrollView, Text, View} from 'react-native';
 
 type Props = {
@@ -7,10 +6,6 @@ type Props = {
 };
 
 function ChildComponent({posts}: Props) {
-  const red = '#ddd';
-  useEffect(() => {
-    console.log('자식 컴포넌트 렌더링');
-  }, []);
   return (
     <ScrollView>
       <View>
